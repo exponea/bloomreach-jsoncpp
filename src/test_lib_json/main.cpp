@@ -670,7 +670,7 @@ JSONTEST_FIXTURE_LOCAL(ValueTest, integers) {
   JSONTEST_ASSERT_EQUAL(0.0, val.asDouble());
   JSONTEST_ASSERT_EQUAL(0.0, val.asFloat());
   JSONTEST_ASSERT_EQUAL(false, val.asBool());
-  JSONTEST_ASSERT_STRING_EQUAL("0.0", val.asString());
+  JSONTEST_ASSERT_STRING_EQUAL("0", val.asString());
 
   // Zero (signed constructor arg)
   val = Json::Value(0);
@@ -754,7 +754,7 @@ JSONTEST_FIXTURE_LOCAL(ValueTest, integers) {
   JSONTEST_ASSERT_EQUAL(0.0, val.asDouble());
   JSONTEST_ASSERT_EQUAL(0.0, val.asFloat());
   JSONTEST_ASSERT_EQUAL(false, val.asBool());
-  JSONTEST_ASSERT_STRING_EQUAL("0.0", val.asString());
+  JSONTEST_ASSERT_STRING_EQUAL("0", val.asString());
 
   // 2^20 (signed constructor arg)
   val = Json::Value(1 << 20);
@@ -838,7 +838,7 @@ JSONTEST_FIXTURE_LOCAL(ValueTest, integers) {
   JSONTEST_ASSERT_EQUAL((1 << 20), val.asFloat());
   JSONTEST_ASSERT_EQUAL(true, val.asBool());
   JSONTEST_ASSERT_STRING_EQUAL(
-      "1048576.0",
+      "1048576",
       normalizeFloatingPointStr(JsonTest::ToJsonString(val.asString())));
 
   // -2^20
@@ -1080,7 +1080,7 @@ JSONTEST_FIXTURE_LOCAL(ValueTest, integers) {
   JSONTEST_ASSERT_EQUAL((Json::Int64(1) << 40), val.asFloat());
   JSONTEST_ASSERT_EQUAL(true, val.asBool());
   JSONTEST_ASSERT_STRING_EQUAL(
-      "1099511627776.0",
+      "1099511627776",
       normalizeFloatingPointStr(JsonTest::ToJsonString(val.asString())));
 
   // -2^40
@@ -1461,7 +1461,7 @@ JSONTEST_FIXTURE_LOCAL(ValueTest, nonIntegers) {
   val = Json::Value(2199023255552000.0f);
   JSONTEST_ASSERT_EQUAL(float(2199023255552000.0f), val.asFloat());
   JSONTEST_ASSERT_STRING_EQUAL(
-      "2199023255552000.0",
+      "2199023255552000",
       normalizeFloatingPointStr(JsonTest::ToJsonString(val.asString())));
 
   // A very large floating point number.
@@ -2188,7 +2188,7 @@ JSONTEST_FIXTURE_LOCAL(FastWriterTest, writeNumericValue) {
                               "\"emptyValue\":null,"
                               "\"false\":false,"
                               "\"null\":\"null\","
-                              "\"number\":-6200000000000000.0,"
+                              "\"number\":-6200000000000000,"
                               "\"real\":1.256,"
                               "\"uintValue\":17"
                               "}\n");
@@ -2246,7 +2246,7 @@ JSONTEST_FIXTURE_LOCAL(StyledWriterTest, writeNumericValue) {
                               "   \"emptyValue\" : null,\n"
                               "   \"false\" : false,\n"
                               "   \"null\" : \"null\",\n"
-                              "   \"number\" : -6200000000000000.0,\n"
+                              "   \"number\" : -6200000000000000,\n"
                               "   \"real\" : 1.256,\n"
                               "   \"uintValue\" : 17\n"
                               "}\n");
@@ -2359,7 +2359,7 @@ JSONTEST_FIXTURE_LOCAL(StyledStreamWriterTest, writeNumericValue) {
                               "\t\"emptyValue\" : null,\n"
                               "\t\"false\" : false,\n"
                               "\t\"null\" : \"null\",\n"
-                              "\t\"number\" : -6200000000000000.0,\n"
+                              "\t\"number\" : -6200000000000000,\n"
                               "\t\"real\" : 1.256,\n"
                               "\t\"uintValue\" : 17\n"
                               "}\n");
@@ -2505,7 +2505,7 @@ JSONTEST_FIXTURE_LOCAL(StreamWriterTest, writeNumericValue) {
                               "\t\"emptyValue\" : null,\n"
                               "\t\"false\" : false,\n"
                               "\t\"null\" : \"null\",\n"
-                              "\t\"number\" : -6200000000000000.0,\n"
+                              "\t\"number\" : -6200000000000000,\n"
                               "\t\"real\" : 1.256,\n"
                               "\t\"uintValue\" : 17\n"
                               "}");

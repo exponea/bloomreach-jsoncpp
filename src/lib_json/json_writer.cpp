@@ -162,6 +162,9 @@ String valueToString(double value, bool useSpecialFloats,
 
   // strip the zero padding from the right
   if (precisionType == PrecisionType::decimalPlaces) {
+    if (std::find(buffer.begin(), buffer.end(), '.') == buffer.end()) {
+      return buffer;
+    }
     buffer.erase(fixZerosInTheEnd(buffer.begin(), buffer.end(), precision),
                  buffer.end());
   }
