@@ -154,17 +154,8 @@ String valueToString(double value, bool useSpecialFloats,
 
   buffer.erase(fixNumericLocale(buffer.begin(), buffer.end()), buffer.end());
 
-  // // try to ensure we preserve the fact that this was given to us as a double on
-  // // input
-  // if (buffer.find('.') == buffer.npos && buffer.find('e') == buffer.npos) {
-  //   buffer += ".0";
-  // }
-
   // strip the zero padding from the right
-  if (precisionType == PrecisionType::decimalPlaces) {
-    if (std::find(buffer.begin(), buffer.end(), '.') == buffer.end()) {
-      return buffer;
-    }
+  if (precisionType == PrecisionType::decimalPlaces && std::find(buffer.begin(), buffer.end(), '.') != buffer.end()) {
     buffer.erase(fixZerosInTheEnd(buffer.begin(), buffer.end(), precision),
                  buffer.end());
   }
